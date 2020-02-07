@@ -1,17 +1,23 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
 
 //Component Links
-import Home from "../src/Components/Home";
-import Profile from "../src/Components/Profile";
+import Home from "./Components/Home";
+import Profile from "./Components/Profile";
+import Nav from "./Components/Nav";
 
-function App() {
-  return (
-    <Router>
-      <Route component={Home} />
-      <Route component={Profile} />
-    </Router>
-  );
+class App extends Component {
+  render() {
+    return (
+      <>
+        <Nav />
+        <div className="body">
+          <Route path="/" exact component={Home} />
+          <Route path="/profile" component={Profile} />
+        </div>
+      </>
+    );
+  }
 }
 
 export default App;
